@@ -1,183 +1,559 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Chris Lorando – Resume</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      background: #f8f9fa;
-      color: #222;
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      max-width: 640px;
-      margin: 40px auto;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 3px 16px rgba(0,0,0,0.04);
-      padding: 32px 24px 24px 24px;
-    }
-    .header {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 16px;
-    }
-    .avatar {
-      width: 64px; height: 64px; border-radius: 50%;
-      background: #eee;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 2.2rem;
-      font-weight: 600;
-      color: #5b5b5b;
-    }
-    h1 {
-      margin: 0;
-      font-size: 2.4rem;
-      font-weight: 600;
-    }
-    .subtitle {
-      color: #74809a;
-      font-size: 1.1rem;
-      margin-bottom: 2px;
-    }
-    .section-title {
-      color: #0080ff;
-      font-size: 1.15rem;
-      font-weight: 600;
-      margin-top: 28px;
-      margin-bottom: 8px;
-      letter-spacing: 0.03em;
-    }
-    p {
-      margin-top: 0;
-      color: #313a3d;
-      font-size: 1rem;
-    }
-    .skill-list, .project-list, .contact-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      list-style: none;
-      padding: 0;
-      margin: 8px 0 0 0;
-    }
-    .skill-item {
-      background: #f1f5ff;
-      color: #0052cc;
-      font-size: 0.98rem;
-      padding: 5px 14px;
-      border-radius: 18px;
-      font-weight: 500;
-      letter-spacing: 0.01em;
-    }
-    .project-card {
-      background: #f3f4f8;
-      border-radius: 8px;
-      padding: 14px 18px;
-      margin-bottom: 12px;
-    }
-    .project-title {
-      font-size: 1.09rem;
-      font-weight: 600;
-      color: #0080ff;
-      margin: 0 0 3px 0;
-    }
-    .project-tags {
-      font-size: 0.82rem; color: #395969;
-      margin-bottom: 0;
-    }
-    .project-links a {
-      color: #0080ff;
-      text-decoration: none;
-      font-weight: 500;
-      margin-right: 10px;
-      font-size: 0.97rem;
-    }
-    .project-links a:hover { text-decoration: underline; }
-    .contact-list a {
-      color: #0080ff;
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: 500;
-      margin-right: 10px;
-    }
-    @media (max-width: 720px) {
-      .container { max-width: 98vw; padding: 2vw; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chris Lorando - Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #212121;
+            --bg-secondary: #2f2f2f;
+            --bg-tertiary: #171717;
+            --text-primary: #ececec;
+            --text-secondary: #b4b4b4;
+            --text-muted: #8e8e8e;
+            --border: #3e3e3e;
+            --hover-bg: #2f2f2f;
+            --card-hover: #3a3a3a;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--bg-tertiary);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 0.5rem 0.875rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            font-size: 0.875rem;
+        }
+
+        .nav-links a:hover {
+            background: var(--hover-bg);
+            color: var(--text-primary);
+        }
+
+        /* Main content */
+        main {
+            margin-top: 60px;
+        }
+
+        section {
+            padding: 4rem 1.5rem;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Hero section */
+        .hero {
+            min-height: calc(100vh - 60px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            text-align: left;
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .hero .description {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--text-primary);
+            color: var(--bg-primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--text-secondary);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--hover-bg);
+        }
+
+        /* About section */
+        .about {
+            background: var(--bg-tertiary);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .about h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .about p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+            line-height: 1.7;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.625rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-tag {
+            padding: 0.5rem 1rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.875rem;
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--card-hover);
+        }
+
+        /* Projects section */
+        .projects {
+            background: var(--bg-primary);
+        }
+
+        .projects h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.75rem;
+            transition: all 0.2s ease;
+        }
+
+        .project-card:hover {
+            background: var(--card-hover);
+            border-color: var(--text-muted);
+        }
+
+        .project-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+            font-size: 0.9375rem;
+            line-height: 1.6;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .project-tag {
+            padding: 0.25rem 0.625rem;
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+            border-radius: 4px;
+            font-size: 0.8125rem;
+            border: 1px solid var(--border);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1.25rem;
+        }
+
+        .project-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            font-size: 0.9375rem;
+        }
+
+        .project-link:hover {
+            color: var(--text-secondary);
+        }
+
+        /* Contact section */
+        .contact {
+            background: var(--bg-tertiary);
+        }
+
+        .contact h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .contact p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .contact-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-size: 0.9375rem;
+        }
+
+        .contact-link:hover {
+            background: var(--card-hover);
+            border-color: var(--text-muted);
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 0.25rem;
+            }
+
+            .nav-links a {
+                padding: 0.5rem;
+                font-size: 0.8125rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.125rem;
+            }
+
+            .hero .description {
+                font-size: 1rem;
+            }
+
+            .contact-links {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-tertiary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--bg-secondary);
+            border-radius: 6px;
+            border: 3px solid var(--bg-tertiary);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--hover-bg);
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <div class="avatar">CL</div>
-      <div>
-        <h1>Chris Lorando</h1>
-        <div class="subtitle">Full Stack Developer</div>
-      </div>
-    </div>
-    <p>
-      Passionate developer crafting elegant, functional digital solutions.<br>
-      Experienced in modern web technologies with a focus on clean code, user experience, and real impact.
-    </p>
-
-    <div class="section-title">Skills</div>
-    <ul class="skill-list">
-      <li class="skill-item">PHP</li>
-      <li class="skill-item">Laravel</li>
-      <li class="skill-item">JavaScript</li>
-      <li class="skill-item">TypeScript</li>
-      <li class="skill-item">Vue</li>
-      <li class="skill-item">Node.js</li>
-      <li class="skill-item">Ionic</li>
-      <li class="skill-item">MySQL</li>
-      <li class="skill-item">PostgreSQL</li>
-      <li class="skill-item">Docker</li>
-      <li class="skill-item">Supabase</li>
-    </ul>
-
-    <div class="section-title">Featured Projects</div>
-    <div class="project-list">
-      <div class="project-card">
-        <div class="project-title">ChatsApp</div>
-        <div>A real-time chat app built with Laravel, Livewire, Alpine.js, Tailwind CSS, and Reverb.</div>
-        <div class="project-tags">Laravel · Livewire · Alpine.js · Reverb · Tailwind · Sqlite</div>
-        <div class="project-links">
-          <a href="https://chatsapp.demolite.my.id/login" target="_blank">Live Demo</a>
-          <a href="https://github.com/chrislorando/chat-app-reverb" target="_blank">GitHub</a>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Chris Lorando</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
-      </div>
-      <div class="project-card">
-        <div class="project-title">Notedpak App</div>
-        <div>Modern to-do app blending discipline and accountability, built with Laravel, Inertia.js (Vue), and NativePHP.</div>
-        <div class="project-tags">Laravel · Inertia · Vue · NativePHP · Supabase · Tailwind · Sqlite</div>
-        <div class="project-links">
-          <a href="https://notedpak.demolite.my.id/" target="_blank">Live Demo</a>
-          <a href="https://github.com/chrislorando/notedpak-app" target="_blank">GitHub</a>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-title">Affilab Studio App</div>
-        <div>Instant TikTok affiliate video generator — TALL stack webapp with AI-powered workflow.</div>
-        <div class="project-tags">Laravel · Livewire · Alpine.js · Tailwind · Supabase · n8n · Sora 2 · OpenAI</div>
-        <div class="project-links">
-          <a href="http://affilab.demolite.my.id/dashboard" target="_blank">Live Demo</a>
-          <a href="https://github.com/chrislorando/affilab-studio-app" target="_blank">GitHub</a>
-        </div>
-      </div>
-    </div>
+    </nav>
 
-    <div class="section-title">Contact</div>
-    <div class="contact-list">
-      <a href="mailto:chrismanuel.lorando@gmail.com" target="_blank">Email</a>
-      <a href="https://github.com/chrislorando" target="_blank">GitHub</a>
-      <a href="https://linkedin.com/in/chrismanuellorando" target="_blank">LinkedIn</a>
-      <a href="https://medium.com/@twinklescode" target="_blank">Medium</a>
-    </div>
-  </div>
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Chris Lorando</h1>
+                    <p class="subtitle">Full Stack Developer</p>
+                    <p class="description">
+                        Passionate developer creating innovative digital solutions with modern technologies. 
+                        Turning ideas into beautiful, functional experiences.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
+                        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>About Me</h2>
+                        <p>
+                            I'm a passionate full-stack developer with a love for creating elegant solutions to complex problems. 
+                            With expertise in modern web technologies, I build applications that are not only functional but also 
+                            provide exceptional user experiences.
+                        </p>
+                        <p>
+                            When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, 
+                            or sharing knowledge with the developer community.
+                        </p>
+                        <div class="skills">
+                            <span class="skill-tag">PHP</span>
+                            <span class="skill-tag">Laravel</span>
+                            <span class="skill-tag">Javascript</span>
+                            <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">Vue</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Ionic</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">Docker</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2>Featured Projects</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h3>ChatsApp</h3>
+                        <p>A real-time chat application built with Laravel, Livewire, Alpine.js, Tailwind CSS, and Reverb. The app demonstrates modern Laravel real-time capabilities with a minimal stack.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Laravel</span>
+                            <span class="project-tag">Livewire</span>
+                            <span class="project-tag">Reverb</span>
+                            <span class="project-tag">Alpine.js</span>
+                            <span class="project-tag">Sqlite</span>
+                            <span class="project-tag">Tailwind</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://chatsapp.demolite.my.id/login" class="project-link" target="_blank">Live Demo →</a>
+                            <a href="https://github.com/chrislorando/chat-app-reverb" class="project-link" target="_blank">GitHub →</a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h3>Notedpak App</h3>
+                        <p>NotedPak is a to-do list app inspired by the spirit of discipline and accountability. Built with Laravel, Inertia.js (Vue), and NativePHP for mobile, NotedPak brings a seamless experience across web and mobile.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Laravel</span>
+                            <span class="project-tag">Inertia</span>
+                            <span class="project-tag">Vue</span>
+                            <span class="project-tag">NativePHP</span>
+                            <span class="project-tag">Sqlite</span>
+                            <span class="project-tag">Supabase</span>
+                            <span class="project-tag">Tailwind</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://notedpak.demolite.my.id/" class="project-link" target="_blank">Live Demo →</a>
+                            <a href="https://github.com/chrislorando/notedpak-app" class="project-link" target="_blank">GitHub →</a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h3>Affilab Studio App</h3>
+                        <p>A TALL stack webapp to generate TikTok affiliate videos instantly—no setup, no editing. Just pick a product and let AI do the work.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Laravel</span>
+                            <span class="project-tag">Livewire</span>
+                            <span class="project-tag">Alpine.js</span>
+                            <span class="project-tag">Tailwind</span>
+                            <span class="project-tag">Supabase</span>
+                            <span class="project-tag">n8n</span>
+                            <span class="project-tag">Sora 2</span>
+                            <span class="project-tag">Open AI</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="http://affilab.demolite.my.id/dashboard" class="project-link" target="_blank">Live Demo →</a>
+                            <a href="https://github.com/chrislorando/affilab-studio-app" class="project-link" target="_blank">GitHub →</a>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Let's Work Together</h2>
+                <p>
+                    I'm always excited to collaborate on new projects and opportunities. 
+                    Whether you have a project in mind or just want to chat about technology, feel free to reach out!
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:chrismanuel.lorando@gmail.com" class="contact-link" target="_blank">
+                        📧 Email
+                    </a>
+                    <a href="https://github.com/chrislorando" class="contact-link" target="_blank">
+                        🐙 GitHub
+                    </a>
+                    <a href="https://linkedin.com/in/chrismanuellorando" class="contact-link" target="_blank">
+                        💼 LinkedIn
+                    </a>
+                    <a href="https://medium.com/@twinklescode" class="contact-link" target="_blank">
+                        ✍️ Medium
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
